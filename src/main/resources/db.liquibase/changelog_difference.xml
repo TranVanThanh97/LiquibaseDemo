@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="admin (generated)" id="1619586638866-1">
+        <createTable catalogName="LiquibaseDemo2" schemaName="dbo" tableName="department">
+            <column computed="false" name="id" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_DEPARTMENT"/>
+            </column>
+            <column computed="false" name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" defaultValueComputed="'true'" defaultValueConstraintName="DF_department_active" name="active" type="bit"/>
+            <column computed="false" name="class" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="add" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="road" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="admin (generated)" id="1619586638866-2">
+        <dropTable catalogName="LiquibaseDemo" schemaName="dbo" tableName="address"/>
+    </changeSet>
+    <changeSet author="admin (generated)" id="1619586638866-3">
+        <dropTable catalogName="LiquibaseDemo" schemaName="dbo" tableName="company"/>
+    </changeSet>
+</databaseChangeLog>
