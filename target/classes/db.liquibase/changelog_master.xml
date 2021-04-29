@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-                    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-<!--    <includeAll context="app1" path="db.liquibase/app1"/>-->
-<!--    <includeAll context="app2" path="db.liquibase/app2"/>-->
 
-<!--    <include file="db.liquibase/changelog_1.0.xml"/>-->
-    <include file="db.liquibase/app1/changelog_1.0.xml"/>
-    <include file="db.liquibase/app1/changelog_2.0.xml"/>
-    <include file="db.liquibase/app1/changelog_3.0.xml"/>
+<!--    <include context="app1" file="db.liquibase/changelog_master_app1.xml"/>-->
+<!--    <include context="app2" file="db.liquibase/changelog_master_app2.xml"/>-->
+<!--    <includeAll context="app1" path="db.liquibase/app1/"/>-->
+<!--    <includeAll context="app2" path="db.liquibase/app2"/>-->
+    <include context="app1" file="db.liquibase/app1/changelog_1.0.xml"/>
+    <include context="app1" file="db.liquibase/app1/changelog_2.0.xml"/>
+    <include context="app1" file="db.liquibase/app1/changelog_3.0.xml"/>
+
+    <include context="app2" file="db.liquibase/app2/changelog_1.0.xml"/>
+    <include context="app2" file="db.liquibase/app2/changelog_2.0.xml"/>
+    <include context="app2" file="db.liquibase/app2/changelog_3.0.xml"/>
+
 </databaseChangeLog>

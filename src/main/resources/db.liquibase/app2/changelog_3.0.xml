@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-                    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
-    <changeSet id="demo2_file3" author="sa" context="demo2" labels="demo2">
+    <changeSet id="demo2_file3" author="sa" runOnChange="true" labels="demo2">
         <addColumn tableName="customer">
-            <column name="add" type="varchar(50)">
+            <column name="road" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
         </addColumn>
+        <rollback>
+            <dropColumn tableName="customer" columnName="road"/>
+        </rollback>
     </changeSet>
     <changeSet id="tag_demo2_file3" author="sa">
         <tagDatabase tag="demo2_ver3"/>

@@ -27,7 +27,7 @@ import java.sql.SQLException;
 public class App {
     public static void main(String[] args) throws ClassNotFoundException, SQLException, LiquibaseException, ParserConfigurationException, IOException {
 
-        int result = LoadConfig.loadAppConfig();
+        LoadConfig.loadAppConfig();
         Class.forName(LoadConfig.className);
         String ip = LoadConfig.serverName;
         int port = LoadConfig.port;
@@ -35,16 +35,17 @@ public class App {
         String databaseName2 = LoadConfig.referenceDb;
         String user = LoadConfig.user;
         String password = LoadConfig.password;
+        String app = LoadConfig.app;
 
         String filelogMigrate = LoadConfig.changeLogMigrate;
         Database database = genDatabase(ip, port, databaseName, user, password);
         Database database2 = genDatabase(ip, port, databaseName2, user, password);
         if(LoadConfig.future.equalsIgnoreCase("migrate")){
-            migrate(filelogMigrate, database);
+            migrate(filelogMigrate, database, app);
         }else if(LoadConfig.future.equalsIgnoreCase("diff")){
             diff(database, database2);
         }else if(LoadConfig.future.equalsIgnoreCase("rollback")){
-            rollback(filelogMigrate, database, LoadConfig.version);
+            rollback(filelogMigrate, database, LoadConfig.version, app);
         }
     }
 
@@ -71,9 +72,9 @@ public class App {
         CommandLineUtils.doDiffToChangeLog(LoadConfig.changeLogDiff, targetDatabase, referenceDatabase, new DiffOutputControl(false, false, true, null), null, null);
     }
 
-    private static void migrate(String fileLog, Database database) throws LiquibaseException {
+    private static void migrate(String fileLog, Database database, String app) throws LiquibaseException {
         Liquibase liquibase = new Liquibase(fileLog, new ClassLoaderResourceAccessor(), database);
-        liquibase.update(new Contexts());
+        liquibase.update(new Contexts(app));
     }
 
     private static Database genDatabase (String ip, int port, String databaseName, String user, String password) throws ClassNotFoundException, SQLException, DatabaseException {
@@ -84,8 +85,8 @@ public class App {
         return database;
     }
 
-    private static void rollback(String fileLog, Database database, String version) throws LiquibaseException {
+    private static void rollback(String fileLog, Database database, String version, String app) throws LiquibaseException {
         Liquibase liquibase = new Liquibase(fileLog, new ClassLoaderResourceAccessor(), database);
-        liquibase.rollback(version, new Contexts());
+        liquibase.rollback(version, new Contexts(app));
     }
 }
