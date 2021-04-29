@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="id_version_1.0" author="sa">
+        <sqlFile dbms="mssql"
+                 path="db.liquibase/sql/version_1.0/version_1.0.sql"
+                 encoding="UTF-8"
+                 endDelimiter=";"
+                 splitStatements="true"/>
+        <rollback>
+            <sqlFile dbms="mssql"
+                     path="db.liquibase/sql/version_1.0/version_1.0_rollback.sql"
+                     encoding="UTF-8"
+                     endDelimiter=";"
+                     splitStatements="true"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="tag_id_version_1.0" author="sa">
+        <tagDatabase tag="version_1.0"/>
+    </changeSet>
+</databaseChangeLog>

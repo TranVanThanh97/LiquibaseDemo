@@ -3,11 +3,14 @@
                     xmlns:pro="http://www.liquibase.org/xml/ns/pro"
                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
-    <changeSet id="1" author="sa">
+    <changeSet id="demo1_file3" author="sa" context="demo1" labels="demo1">
         <addColumn tableName="address">
             <column name="add" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
         </addColumn>
+    </changeSet>
+    <changeSet id="tag_demo1_file3" author="sa">
+        <tagDatabase tag="demo1_ver3"/>
     </changeSet>
 </databaseChangeLog>

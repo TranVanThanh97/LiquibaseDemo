@@ -2,7 +2,7 @@
 <databaseChangeLog  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
-    <changeSet id="1" author="sa">
+    <changeSet id="demo1_file2" author="sa" runOnChange="true" context="demo1" labels="demo1">
         <addColumn tableName="address">
             <column name="road" type="varchar(50)">
                 <constraints nullable="false"/>
@@ -12,7 +12,7 @@
             <dropColumn tableName="address" columnName="road"/>
         </rollback>
     </changeSet>
-    <changeSet id="tag_version_1.1" author="sa">
-        <tagDatabase tag="version_1.1"/>
+    <changeSet id="tag_demo1_file2" author="sa">
+        <tagDatabase tag="demo1_ver2"/>
     </changeSet>
 </databaseChangeLog>

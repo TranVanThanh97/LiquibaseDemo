@@ -2,8 +2,8 @@
 <databaseChangeLog  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
-    <changeSet  id="1"  author="bob">
-        <createTable tableName="address">
+    <changeSet  id="demo2_file1"  author="sa" runOnChange="true" context="demo2" labels="demo2">
+        <createTable tableName="customer">
             <column  name="id"  type="int">
                 <constraints  primaryKey="true"  nullable="false"/>
             </column>
@@ -15,7 +15,7 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <createTable tableName="company">
+        <createTable tableName="department">
             <column name="id" type="int">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
@@ -25,7 +25,7 @@
             <dropTable tableName="address"></dropTable>
         </rollback>
     </changeSet>
-    <changeSet id="tag_version_1.0" author="sa">
-        <tagDatabase tag="version_1.0"/>
+    <changeSet id="tag_demo2_file1" author="sa">
+        <tagDatabase tag="demo2_ver1"/>
     </changeSet>
 </databaseChangeLog>

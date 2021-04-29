@@ -3,12 +3,14 @@
                     xmlns:pro="http://www.liquibase.org/xml/ns/pro"
                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
-
-<!--    <includeAll context="app1" path="db.liquibase/app1"/>-->
-<!--    <includeAll context="app2" path="db.liquibase/app2"/>-->
-
-<!--    <include file="db.liquibase/changelog_1.0.xml"/>-->
-    <include file="db.liquibase/app1/changelog_1.0.xml"/>
-    <include file="db.liquibase/app1/changelog_2.0.xml"/>
-    <include file="db.liquibase/app1/changelog_3.0.xml"/>
+    <changeSet id="demo2_file3" author="sa" context="demo2" labels="demo2">
+        <addColumn tableName="customer">
+            <column name="add" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="tag_demo2_file3" author="sa">
+        <tagDatabase tag="demo2_ver3"/>
+    </changeSet>
 </databaseChangeLog>
