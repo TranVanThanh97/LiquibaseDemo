@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-                    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
     <changeSet  id="1"  author="bob">
         <createTable tableName="address">
             <column  name="id"  type="int">
@@ -22,8 +21,11 @@
             </column>
             <column name="name" type="varchar(50)"></column>
         </createTable>
-        <sql>
-
-        </sql>
+        <rollback>
+            <dropTable tableName="address"></dropTable>
+        </rollback>
+    </changeSet>
+    <changeSet id="tag_version_1.0" author="sa">
+        <tagDatabase tag="version_1.0"/>
     </changeSet>
 </databaseChangeLog>

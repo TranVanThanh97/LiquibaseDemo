@@ -3,7 +3,7 @@
                     xmlns:pro="http://www.liquibase.org/xml/ns/pro"
                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
-    <include file="db.liquibase/changelog_1.0.xml"/>
-    <include file="db.liquibase/changelog_2.0.xml"/>
-    <include file="db.liquibase/changelog_3.0.xml"/>
+    <include context="ver1" file="db.liquibase/changelog_1.0.xml"/>
+    <include context="ver2" file="db.liquibase/changelog_2.0.xml"/>
+<!--    <include context="ver3" file="db.liquibase/changelog_3.0.xml"/>-->
 </databaseChangeLog>

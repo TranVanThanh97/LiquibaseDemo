@@ -17,6 +17,7 @@ public class LoadConfig {
     public static String changeLogMigrate;
     public static String changeLogDiff;
     public static String future;
+    public static String version;
 
     public static Integer loadAppConfig() {
         int result;
@@ -40,6 +41,7 @@ public class LoadConfig {
                 LoadConfig.changeLogMigrate = cProp.getProperty("file.changelog.migrate", "");
                 LoadConfig.changeLogDiff = cProp.getProperty("file.changelog.diff", "");
                 LoadConfig.future = cProp.getProperty("app.process.future","migrate");
+                LoadConfig.version = cProp.getProperty("app.database.rollback.version","");
                 result = 0;
             } else {
                 result = 1;

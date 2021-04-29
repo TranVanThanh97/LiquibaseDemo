@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-                    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
     <changeSet id="1" author="sa">
@@ -13,7 +12,7 @@
             <dropColumn tableName="address" columnName="road"/>
         </rollback>
     </changeSet>
-    <changeSet id="2" author="sa">
-        <tagDatabase tag="ver2.0"/>
+    <changeSet id="tag_version_1.1" author="sa">
+        <tagDatabase tag="version_1.1"/>
     </changeSet>
 </databaseChangeLog>
